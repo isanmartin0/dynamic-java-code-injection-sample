@@ -1,0 +1,11 @@
+package org.keedio.dynamic;
+
+import org.keedio.dynamic.DynamicJavaClassLoading.Strategy;
+
+public class MyClass implements Strategy {
+    public int compute(int a, int b) {
+        int peso1 = 2;
+        int peso2 = 5;
+        return (peso1*a) - (peso2*b);
+    }
+};

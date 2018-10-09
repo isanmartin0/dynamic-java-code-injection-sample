@@ -1,0 +1,8 @@
+package org.keedio;
+
+public class MyRule  {
+    public int peso = 4;
+    public int myCompute(int a, int b) {
+        return peso*(a+b);
+    }
+};
