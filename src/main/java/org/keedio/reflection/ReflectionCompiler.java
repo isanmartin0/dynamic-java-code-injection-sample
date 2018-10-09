@@ -47,10 +47,10 @@ public class ReflectionCompiler {
         Integer b = 20;
         String className = "org.keedio.MyRule";
         String methodName = "myCompute";
-        Integer result = Reflect.compile(className, ruleClassCode).create().call(methodName,a,b).get();
+        Reflect.compile(className, ruleClassCode).create().call(methodName,a,b).get();
 
 
-        System.out.println(result);
+        //System.out.println(result);
 
 
     }
