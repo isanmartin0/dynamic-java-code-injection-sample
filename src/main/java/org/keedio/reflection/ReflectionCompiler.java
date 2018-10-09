@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ReflectionCompiler {
 
@@ -63,6 +65,12 @@ public class ReflectionCompiler {
         result = Reflect.compile(className, ruleClassCode).create().call(methodName,arrayObjectValues).get();
         System.out.println(result);
 
+        methodName = "myComputeMap";
+        Map<String, Integer> valuesMap = new HashMap<>();
+        valuesMap.put("par1", new Integer(a));
+        valuesMap.put("par2", new Integer(b));
+        result = Reflect.compile(className, ruleClassCode).create().call(methodName,valuesMap).get();
+        System.out.println(result);
 
     }
 }

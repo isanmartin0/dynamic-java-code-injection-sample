@@ -1,10 +1,13 @@
 package org.keedio;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MyRule  {
     public int peso = 5;
 
     public int myCompute(int a, int b) {
-        return peso*(a+b);
+        return 2*peso*(a+b);
     }
 
     public int myComputeArray(int[] arrayValues) {
@@ -15,5 +18,11 @@ public class MyRule  {
 
     public Integer myComputeArrayObject(Integer value1, Integer value2) {
         return peso*(value1 + value2);
+    }
+
+    public Integer myComputeMap(Map<String, Integer> valuesMap) {
+        Integer par1 = valuesMap.get("par1");
+        Integer par2 = valuesMap.get("par2");
+        return peso*(par1 + par2)+2;
     }
 };
