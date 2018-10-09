@@ -47,10 +47,21 @@ public class ReflectionCompiler {
         Integer b = 20;
         String className = "org.keedio.MyRule";
         String methodName = "myCompute";
-        Reflect.compile(className, ruleClassCode).create().call(methodName,a,b).get();
+        Integer result = Reflect.compile(className, ruleClassCode).create().call(methodName,a,b).get();
+        System.out.println(result);
 
+        methodName = "myComputeArray";
+        int[] arrayValues = {10, 20};
+        result = Reflect.compile(className, ruleClassCode).create().call(methodName,arrayValues).get();
+        System.out.println(result);
 
-        //System.out.println(result);
+        //Un array de objetos busca un método con tantos parámetros como el array tiene
+        methodName = "myComputeArrayObject";
+        Integer[] arrayObjectValues = new Integer[2];
+        arrayObjectValues[0] = 10;
+        arrayObjectValues[1] = 20;
+        result = Reflect.compile(className, ruleClassCode).create().call(methodName,arrayObjectValues).get();
+        System.out.println(result);
 
 
     }

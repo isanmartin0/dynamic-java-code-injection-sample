@@ -25,7 +25,10 @@ public class DynamicJavascriptCaller {
         System.out.println(result);
         System.out.println(result.getClass());
 
-
+        int[] arrayValues = {1,2,3,4,5};
+        result = invocable.invokeFunction("myComputeArray", arrayValues);
+        System.out.println(result);
+        System.out.println(result.getClass());
 
     }
 }
