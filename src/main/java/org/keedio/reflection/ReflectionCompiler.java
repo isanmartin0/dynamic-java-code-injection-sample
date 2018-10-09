@@ -27,12 +27,12 @@ public class ReflectionCompiler {
 
         String path = "src/main/resources/MyRule.rule";
 
-        StringBuffer sbAddingStrategy = new StringBuffer();
+        StringBuffer sbRuleClassCode = new StringBuffer();
 
         try (BufferedReader r = Files.newBufferedReader(Paths.get(path), Charset.defaultCharset())) {
-            r.lines().forEach(item->sbAddingStrategy.append(item).append("\n"));
+            r.lines().forEach(item->sbRuleClassCode.append(item).append("\n"));
         }
-        ruleClassCode = sbAddingStrategy.toString();
+        ruleClassCode = sbRuleClassCode.toString();
 
         if (logger.isDebugEnabled()) {
             logger.debug("END loadPropertiesFile");
