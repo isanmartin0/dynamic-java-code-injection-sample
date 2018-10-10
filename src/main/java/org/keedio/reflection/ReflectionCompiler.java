@@ -1,6 +1,7 @@
 package org.keedio.reflection;
 
 import org.joor.Reflect;
+import org.keedio.beans.MetricsBean;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
@@ -65,11 +66,22 @@ public class ReflectionCompiler {
         result = Reflect.compile(className, ruleClassCode).create().call(methodName,arrayObjectValues).get();
         System.out.println(result);
 
+
         methodName = "myComputeMap";
         Map<String, Integer> valuesMap = new HashMap<>();
         valuesMap.put("par1", new Integer(a));
         valuesMap.put("par2", new Integer(b));
         result = Reflect.compile(className, ruleClassCode).create().call(methodName,valuesMap).get();
+        System.out.println(result);
+
+        methodName = "myComputeMapObject";
+        Map<String, MetricsBean> valuesMapObject = new HashMap<>();
+        MetricsBean mb1 = new MetricsBean("par1", "MB" , "2018-10-09T13:17:28.000Z", a);
+        MetricsBean mb2 = new MetricsBean("par2", "MB" , "2018-10-09T13:17:28.000Z", b);
+
+        valuesMapObject.put("par1", mb1);
+        valuesMapObject.put("par2", mb2);
+        result = Reflect.compile(className, ruleClassCode).create().call(methodName,valuesMapObject).get();
         System.out.println(result);
 
     }

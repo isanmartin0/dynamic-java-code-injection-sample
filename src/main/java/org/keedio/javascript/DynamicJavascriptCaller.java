@@ -1,5 +1,7 @@
 package org.keedio.javascript;
 
+import org.keedio.beans.MetricsBean;
+
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -42,5 +44,15 @@ public class DynamicJavascriptCaller {
         System.out.println(result);
         System.out.println(result.getClass());
 
+        System.out.println("\nExample function call with map with objects");
+        Map<String, MetricsBean> valuesMapObject = new HashMap<>();
+        MetricsBean mb1 = new MetricsBean("par1", "MB" , "2018-10-09T13:17:28.000Z", a);
+        MetricsBean mb2 = new MetricsBean("par2", "MB" , "2018-10-09T13:17:28.000Z", b);
+        valuesMapObject.put("par1", mb1);
+        valuesMapObject.put("par2", mb2);
+
+        result = invocable.invokeFunction("fun3", valuesMapObject);
+        System.out.println(result);
+        System.out.println(result.getClass());
     }
 }

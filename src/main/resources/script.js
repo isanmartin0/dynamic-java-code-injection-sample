@@ -37,3 +37,14 @@ var fun2 = function(mapValues) {
     return result | 0;
 
 };
+
+var fun3 = function(mapValuesObject) {
+   print("JS Class Definition: " + Object.prototype.toString.call(mapValuesObject));
+   var par1 = mapValuesObject.get("par1");
+   var par2 = mapValuesObject.get("par2");
+   var ramdom = Math.random();
+   for each (var e in mapValuesObject.keySet()) print(e);
+   var peso = 2;
+   var result = peso * ramdom * (par1.getMetricValue() + par2.getMetricValue()) ;
+   return result | 0;
+};
